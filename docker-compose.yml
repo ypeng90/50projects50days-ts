@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  50p50d-react-ts:
+    build: .
+    image: 50p50d-react-ts
+    container_name: 50p50d-react-ts
+    restart: "no"
+    # auto reload with --legacy-watch for docker in regular react app
+    # command: ["sh", "-c", "nodemon --legacy-watch index.js"]
+    # auto reload with --legacy-watch for docker in next.js react app
+    command: ["sh", "-c", "npm run dev"]
+    env_file:
+      - ./.env.local
+    volumes:
+      # keep node_modules only in docker to avoid super slow build
+      - /home/app/node_modules
+      - .:/home/app
+    ports:
+      - 3000:3000
+    networks:
+      - default
+
+networks:
+  default:
+    name: 50p50d-react-ts
