@@ -6,7 +6,7 @@ const previewCardsData = [
   },
   {
     title: "Animated Countdown",
-    href: "/static/animated-countdown/index.html",
+    href: "/animated-countdown",
     imageSrc: "/assets/images/hero-card-complete.jpeg",
   },
   {
